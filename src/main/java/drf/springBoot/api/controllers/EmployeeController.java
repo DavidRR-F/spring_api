@@ -1,5 +1,8 @@
-package drf.springBoot.api.employee;
+package drf.springBoot.api.controllers;
 
+import drf.springBoot.api.employee.Employee;
+import drf.springBoot.api.employee.EmployeeNotFound;
+import drf.springBoot.api.employee.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;

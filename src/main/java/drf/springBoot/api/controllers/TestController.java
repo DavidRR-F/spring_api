@@ -1,5 +1,6 @@
-package drf.springBoot.api.test;
+package drf.springBoot.api.controllers;
 
+import drf.springBoot.api.test.Test;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.constant.Constable;
