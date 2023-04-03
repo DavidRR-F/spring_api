@@ -163,10 +163,12 @@ Differences between a pojo and a bean in Java Spring Boot:
 
 Overall, while pojos and beans are both Java classes, they serve different purposes in Java Spring Boot. Pojos are typically used to represent data in the application domain model, while beans are used to represent components of a larger Spring-based application and are managed by the Spring framework.
 
-#### Access Modifiers
+### Access Modifiers
 access modifiers used to specify the visibility and accessibility of classes, methods, and variables in a program.
 
 - **public**: most permissive access modifier, and makes the class, method, or variable accessible from any other class in the program.
 - **private**: most restrictive access modifier, and makes the class, method, or variable accessible only within the same class in which it is defined.
 - **protected**: makes the class, method, or variable accessible within the same package or any subclass of the class in which it is defined.
 - **static**: modifier that indicates that the class, method, or variable is shared among all instances of the class, rather than being specific to any one instance.
+
+### [Swagger UI](http://localhost:8080/swagger-ui/index.html)
