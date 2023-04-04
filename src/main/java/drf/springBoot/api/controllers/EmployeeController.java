@@ -14,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/employees")
@@ -38,11 +39,11 @@ public class EmployeeController {
 
     @GetMapping("/{empId}")
     public EntityModel<Employee> getEmployee(@PathVariable int empId) {
-        Employee employee = employeeService.getEmployeeById(empId);
-        if(null == employee) {
+        Optional<Employee> employee = employeeService.getEmployeeById(empId);
+        if(employee.isEmpty()) {
             throw new EmployeeNotFound("Invalid Employee Information");
         }
-        EntityModel<Employee> model = EntityModel.of(employee);
+        EntityModel<Employee> model = EntityModel.of(employee.get());
         Link link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllEmployees(null)).withRel("all-employees");
         model.add(link);
         return model;
@@ -57,12 +58,12 @@ public class EmployeeController {
         return ResponseEntity.created(uri).build();
     }
 
-    @DeleteMapping("/{empId}")
-    public ResponseEntity<Object> deleteEmployee(@PathVariable int empId) {
-        Employee employee = employeeService.deleteEmployee(empId);
-        if (null == employee) {
-            throw new EmployeeNotFound("Invalid Employee Information");
-        }
-        return ResponseEntity.accepted().build();
-    }
+//    @DeleteMapping("/{empId}")
+//    public ResponseEntity<Object> deleteEmployee(@PathVariable int empId) {
+//        Employee employee = employeeService.deleteEmployee(empId);
+//        if (null == employee) {
+//            throw new EmployeeNotFound("Invalid Employee Information");
+//        }
+//        return ResponseEntity.accepted().build();
+//    }
 }

@@ -52,6 +52,15 @@ Here are some of the main functions of JPA:
 
 - **Transactions**: JPA provides support for managing transactions, including the ability to commit or rollback a transaction, as well as defining transaction boundaries.
 
+#### JPARepository vs EntityManager
+EntityManager is part of the Java Persistence API (JPA) and provides a low-level API for interacting with a database. It is used to manage the lifecycle of JPA entities, which represent database records mapped to Java classes. EntityManager provides methods for querying, inserting, updating, and deleting records, and allows you to define relationships between entities. It also provides a cache for improved performance and transaction management for atomicity and consistency.
+
+On the other hand, JpaRepository is part of the Spring Data JPA framework and provides a high-level, generic API for interacting with a database. It builds on top of JPA and EntityManager, and provides additional functionality such as pagination, sorting, and dynamic query generation. It is essentially a convenience interface that encapsulates the common database operations and reduces boilerplate code in your application.
+
+In general, EntityManager is more appropriate for applications that require low-level control over database operations and for complex queries that cannot be easily expressed using JpaRepository. On the other hand, JpaRepository is more appropriate for applications that require a simpler, high-level interface for interacting with a database, and for applications that can benefit from the additional functionality it provides.
+
+It is also worth noting that you can use both EntityManager and JpaRepository in the same application, and even in the same transaction, depending on the specific requirements of your use case.
+
 ### Spring Security
 Spring Security is a powerful framework that provides security services for Spring-based applications. By using it, you can ensure that your application is secure and protected against a variety of security threats.
 Here are some of the main functions of Spring Security:
@@ -112,6 +121,27 @@ You are able to view the default ResponseEntityExceptionHandler methods and over
 
 - Override Method hotkey: (ctrl + o)
 
+### Swagger
+An open-source software framework used to describe and document RESTful web services. It provides a standard, language-agnostic way of describing the functionality and requirements of an API, allowing developers to quickly and easily understand how to interact with it.
+
+Swagger consists of a set of specifications and tools, including the Swagger UI, which allows developers to visually interact with an API and explore its capabilities. With Swagger, developers can easily generate documentation for their APIs, automatically generate client libraries, and test their APIs.
+
+#### Default OpenAPI Endpoints:
+
+    - /swagger-ui/index.html
+    - /v2/api-docs
+
+### Actuators
+Typically implemented as endpoints in an API that provide information about an application's internals, such as its configuration, environment, memory usage, and runtime statistics. They may also provide functionality to modify an application's behavior, such as changing its logging level or reloading its configuration.
+
+Actuators are commonly used in microservices architecture, where multiple small services are used to build an application in combination with other monitoring tools, such as logging frameworks and health checkers, to provide a comprehensive view of an application's health and performance.
+
+#### Default Endpoints
+    -/actuator
+    -/actuator/health
+    -/actuator/health/{*path}
+    -/browser/index.html
+
 ## Java Notes
 
 ### Primitive Types VS Wrapper Classes
@@ -170,5 +200,3 @@ access modifiers used to specify the visibility and accessibility of classes, me
 - **private**: most restrictive access modifier, and makes the class, method, or variable accessible only within the same class in which it is defined.
 - **protected**: makes the class, method, or variable accessible within the same package or any subclass of the class in which it is defined.
 - **static**: modifier that indicates that the class, method, or variable is shared among all instances of the class, rather than being specific to any one instance.
-
-### [Swagger UI](http://localhost:8080/swagger-ui/index.html)
