@@ -58,12 +58,12 @@ public class EmployeeController {
         return ResponseEntity.created(uri).build();
     }
 
-//    @DeleteMapping("/{empId}")
-//    public ResponseEntity<Object> deleteEmployee(@PathVariable int empId) {
-//        Employee employee = employeeService.deleteEmployee(empId);
-//        if (null == employee) {
-//            throw new EmployeeNotFound("Invalid Employee Information");
-//        }
-//        return ResponseEntity.accepted().build();
-//    }
+    @DeleteMapping("/{empId}")
+    public ResponseEntity<Object> deleteEmployee(@PathVariable int empId) {
+        Optional<Employee> employee = employeeService.deleteEmployee(empId);
+        if (employee.isEmpty()) {
+            throw new EmployeeNotFound("Invalid Employee Information");
+        }
+        return ResponseEntity.accepted().build();
+    }
 }

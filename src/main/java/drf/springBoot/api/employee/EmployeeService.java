@@ -45,7 +45,7 @@ public class EmployeeService {
         //return list.stream().filter(emp -> emp.getName().equals(empName)).collect(Collectors.toList());
     }
 
-    //public Employee deleteEmployee(int empId) {
+    public Optional<Employee> deleteEmployee(int empId) {
 //        Iterator<Employee> iterator = list.iterator();
 //        while (iterator.hasNext()) {
 //            Employee emp = iterator.next();
@@ -55,6 +55,8 @@ public class EmployeeService {
 //            }
 //        }
 //        return null;
-        //return employeeRepository.deleteByIdAndReturnEmployee(empId);
-    //}
+        Optional<Employee> employee = employeeRepository.findById(empId);
+        employeeRepository.deleteById(empId);
+        return employee;
+    }
 }

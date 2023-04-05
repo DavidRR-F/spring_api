@@ -10,6 +10,4 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findByName(String name);
 
-//    @Query("SELECT e FROM Employee e WHERE e.id = :id")
-//    Employee deleteByIdAndReturnEmployee(int id);
 }

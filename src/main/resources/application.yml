@@ -4,7 +4,7 @@
 logging:
   level:
     org:
-      springframework: debug
+      #springframework: debug
 # configuration for actuator for all services
 management:
   endpoints:
@@ -14,13 +14,12 @@ management:
 # spring configs
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/mydatabase
-    username: root
-    password: BigDaddyData@96
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: test
+    password: test123
   jpa:
     hibernate:
-      ddl-auto: 'create-drop'
-    show-sql: true
+      ddl-auto: update #create (use to create tables)
   security:
     user:
       name: admin
